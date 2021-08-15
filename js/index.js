@@ -1,119 +1,185 @@
-//коментарий
-// комант для одной строки
-/* блок кода */
+// вывести N звездочки
+//1
+console.log('******************');
+//2
+console.log('*');
+console.log('*');
+console.log('*');
+console.log('*');
+console.log('*');
+console.log('*');
+console.log('*');
+console.log('*');
+console.log('*');
+console.log('*');
 
-//alert('Hello, JavaScript!!!');
+//циклы if while
+/*
+while (условие) {
+  инструкция
+}
+*/
+console.log('---------------------');
+let n = 5, // end
+  i = 1; // start
+while (i <= n) {
+  console.log('*');
+  i = i + 1; // i++;
+}
 
-console.log('Hello JS!');
+// 2
+while (n > 0) {
+  console.log('*');
+  n--;
+}
 
-let x;
-let a, b;
-console.log(x);
-x = 5;
-console.log('x=', x);
-console.log(x, a, b);
-a = 'world';
-b = 0.77;
-console.log(x, a, b);
+// задача 1,2....10
+n = 10;
+i = 1;
+while (i <= n) {
+  console.log(i);
+  i++;
+}
 
-let userName;
-userName = 'Vasya';
-console.log(userName);
+console.log('---------------------');
+// задача 1,3,5,....10 нечетные числа
+i = 1;
+n = 10;
+while (i <= n) {
+  console.log(i);
+  i = i + 2;
+}
 
-let userAge = 100;
-console.log(userAge);
+console.log('---------------------');
+// задача 1,3,5,....10 четные числа
+i = 2;
+n = 10;
+while (i <= n) {
+  console.log(i);
+  i = i + 2;
+}
+// задача 1,5,10,.... четные числа
+i = 0;
+n = 30;
+while (i <= n) {
+  console.log(i);
+  i = i + 5;
+}
 
-let name = 'Ivan',
-  age;
-age = 20;
-console.log(name, age);
+// сумма чисел от 1 до 10
+let result = 0;
+/* BAD
+result += 1;
+result += 2;
+result += 3;
+result += 4;
+result += 5;
+result += 6;
+result += 7;
+result += 8;
+result += 9;
+result += 10;
+*/
+console.log('---------------------');
+i = 1;
+n = 10;
+while (i <= n) {
+  result += i;
+  i++;
+}
+console.log('sum from 1 to 10 is', result);
+/*
+i=1; 1 <= 10 ? result += 1
+i=2  2 <=10 ????  result += 2
+i=3  3 <=10 ????  result += 3
+..
+i=10  10 <=10 ????  result += 10
+i=11 while(11 <= 10 ) ??? exit
+*/
 
-const COLOR_CAR = 'RED',
-  FIRST_USER = 'Vasya';
-console.log(COLOR_CAR, FIRST_USER);
+// произведение чисел от 1 до 10
+console.log('---------------------');
+i = 1;
+n = 10;
+result = 1;
+while (i <= n) {
+  result = result * i; //result *= i;
+  i++;
+}
+console.log('sum from 1 to 10 is', result);
 
-x = 100;
-console.log(x);
-x = 200;
-console.log(x);
-x = b; // теперь х равно b - значение b присваивается для х
-console.log(x);
-let x2 = 1000;
-x = x2;
-console.log('x=', x, 'x2=', x2);
+// произведение нечетных чисел от 1 до 10
+console.log('---------------------');
+i = 1;
+n = 10;
+result = 1;
+while (i <= n) {
+  result = result * i; //result *= i;
+  i = i + 2;
+}
+console.log('sum from 1 to 10 is', result);
 
 /*
-Здесь будет ошибка! константу нельзя повторно инициализировать
-COLOR_CAR = 'BLUE';
-console.log(COLOR_CAR);
+// 1 выполнить указанное действие хотя бы 1 раз вне зависимости от условия
+// while : сначала проверяем - потом выполняем
+// do-while: сначала 1 раз выполним потом только начнем проверять
+
+do{
+   выражение
+}
+while (условие);
+*/
+// сумма от 1 до 10
+(i = 1), (n = 10), (result = 0);
+do {
+  result = result + i; //result *= i;
+  i = i + 1;
+} while (i <= n);
+console.log('---------------------');
+console.log('do-while: sum from 1 to 10 is', result);
+/*
+i=1  do: result = result + 1  = 1, i=i+1=2    while(2<=10)
+i=2  do: result = 1 + 2  = 3, i=2+1=3    while(3<=10)
+i=3  do: result = 3 + 3  = 6, i=3+1=4    while(4<=10)
+i=4  do: result = 6 + 4  = 10, i=4+1=5    while(5<=10)
+..
+i=10  do: result = result + 10 , i=10+1=11    while(11<=10)
 */
 
-const X_CONST = 200;
-console.log('x (before) =', x);
-x = X_CONST;
-console.log('x (after) =', x);
-/* ощибка : повторная инициализация, присваение невозможно константе
-X_CONST = x;
-console.log('X_CONST (after) =', X_CONST);
-*/
+// сумма от 1 до 10
+console.log('---------------------');
+i = 10000;
+n = 10;
+result = 0;
+while (i <= n) {
+  result = result + i;
+  i++;
+}
+console.log('sum from 1 to 10 is', result);
+//do-while
+console.log('---------------------');
+i = 10000;
+n = 10;
+result = 0;
+do {
+  result = result + i;
+  i++;
+} while (i <= n);
+console.log('sum from 1 to 10 is', result);
 
 /*
-числа 1 100 -200 0 0.3333 
-строки 'hello world !!! ++ 556 sd' "red car"
-логический тип  true, false (0 и 1)
-объекты {}
+Задачи
+
+1 вычислить сумму нечетных чисел от 1 до 30 
+
+2 вывести первых 10 значений степени 2
+
+3* вывести таблицу значений для функции y = -3x2 + 5x - 2 для значения х от -2 до 2 с шагом 0.5
+
+
+4 спросить у пользователя общеизвестный факт на ваш вкус и высветить ему сообщение правильно или нет. например, “как называется наша планета?” 
+
+5*
+попросить пользователя решить пример “1+1=?” (или любой другой пример на ваш вкус). высвечивать (повторять) пример до тех пор пока пользователь не решит его 
+
 */
-console.log('---------------');
-let a1, a2, result;
-a1 = 100;
-a2 = 200;
-result = a1 + a2;
-console.log(result);
-result = a1 - a2;
-console.log(result);
-result = a1 * a2;
-console.log(result);
-result = a1 / a2;
-console.log(result);
-
-console.log('---------------');
-result = a1 + 4;
-console.log(result);
-result = a1 - 1.2;
-console.log(result);
-result = a1 * 0.5;
-console.log(result);
-result = a1 / 1000;
-console.log(result);
-
-console.log('---------------');
-console.log(x);
-x = x + 1;
-console.log(x);
-x = x - 1;
-console.log(x);
-x = x / 10;
-console.log(x);
-x = x * 6;
-console.log(x);
-
-console.log('---------------');
-// инкремент x = x + 1 это тоже самое что х++
-let result3;
-result3 = x;
-console.log(result3);
-x++;
-result3 = x;
-console.log(result3);
-
-// декремент x = x - 1 это тоже самое что х--
-console.log(result3);
-result3 = --x;
-console.log(result3);
-
-/*Задача перевести кг в граммы*/
-let valueKg, valueGr;
-const DEFAULT_VALUE_KG = 50;
-valueKg = prompt('Введи значение в кг', DEFAULT_VALUE_KG); // спрашиваем у пользователя значение в кг
-valueGr = valueKg * 1000;
-console.log('Result is ', valueGr, 'gr');
