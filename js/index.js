@@ -545,3 +545,178 @@ console.log('Count of leap years is ', countLeapYears);
 if (countLeapYears == 0) {
   console.log('Нет высокостных годов в заданном диапазоне');
 }
+
+//===============================================
+// FUNCTION
+//===============================================
+
+//!!!!!!!!!!!!
+/*
+условие if-else{} альтарнатива, выбор, условие задачи
+циклы for, while, do-while действие повторяется число раз и есть шаг изменений
+функция function код с определнной целью либо функциональностью, вы его вызываете тогда когда Вам надо
+
+*/
+/*
+i=5;
+while (i > 0) {
+  console.log('*');
+  i--;
+}
+
+//........
+//
+//
+
+i = 2;
+while (i > 0) {
+  console.log('*');
+  i--;
+}
+//...
+
+i = 10;
+while (i > 0) {
+  console.log('*');
+  i--;
+}
+
+превратится в следующий вид
+
+printStart(5);
+
+//........
+//
+//
+
+printStart(2);
+//...
+
+printStart(10);
+
+*/
+/*
+function названиеВашейФункции ([список параметров]){
+  //тело функции с действиями/операторы
+}
+
+// область видимости ваших перменных это тело фукнции
+  // т.е. все переменные в функции не видит основная программа
+  // изолированный кусок кода
+  // let или const не пишеться в параментрах
+*/
+
+function printStarts(countYourStarts) {
+  while (countYourStarts > 0) {
+    console.log('*');
+    countYourStarts--;
+  }
+}
+
+printStarts(2);
+///
+printStarts(10);
+
+function sumNumbers(n) {
+  let result = 0,
+    num;
+  for (num = 1; num <= n; num++) {
+    result += num;
+  }
+  return result; // возврат значения
+}
+
+let res;
+res = sumNumbers(10);
+console.log('Sum from 1 to 10 is ', res);
+res = sumNumbers(50);
+console.log('Sum from 1 to 50 is ', res);
+
+function sumNumbers2(limit1, limit2) {
+  let result = 0,
+    num;
+  for (num = limit1; num <= limit2; num++) {
+    result += num;
+  }
+  return result; // возврат значения
+}
+
+res = sumNumbers2(10, 15);
+console.log('Sum from 10 to 15 is ', res);
+
+// Task написать функцию которая отвечает за произведение чисел
+
+function multNumbers(limit1, limit2) {
+  let result = 1,
+    num;
+  for (num = limit1; num <= limit2; num++) {
+    result *= num;
+  }
+  return result; // возврат значения
+}
+console.log('Mult from 1 to 5 is ', multNumbers(1, 5));
+console.log('Mult from 1 to 100 is ', multNumbers(1, 100));
+console.log('Mult from 100 to 130 is ', multNumbers(25, 30));
+
+// Task написать функцию которая решает задачу 8:
+// вывести все высокостные годы (нацело делиться на 4)
+// из заданого диапазона
+function leapYearFunction(startYear, endYear) {
+  let isLeapYear = false,
+    i;
+  for (i = startYear; i <= endYear; i++) {
+    if (i % 4 == 0) {
+      console.log(i);
+      isLeapYear = true;
+    }
+  }
+  if (isLeapYear == false) {
+    console.log('Нет высокостных годов в заданном диапазоне');
+  }
+}
+
+console.log('----------------------------');
+console.log('Leap years from 2021 to 2023');
+leapYearFunction(2021, 2023);
+console.log('Leap years from 2021 to 2050');
+leapYearFunction(2021, 2050);
+
+// та же сачая функция с годами
+console.log('----------------------------');
+function leapYearFunction2(startYear, endYear) {
+  let countLeapYears = 0,
+    i;
+  for (i = startYear; i <= endYear; i++) {
+    if (i % 4 == 0) {
+      console.log(i);
+      countLeapYears++;
+    }
+  }
+  if (countLeapYears == 0) {
+    console.log('Нет высокостных годов в заданном диапазоне');
+  }
+  return countLeapYears;
+}
+
+console.log('Leap years from 2021 to 2023');
+res = leapYearFunction2(2021, 2023);
+console.log('Count=', res);
+console.log('Leap years from 2021 to 2050');
+res = leapYearFunction2(2021, 2050);
+console.log('Count=', res);
+
+// !!!!!!!!!!!!!!!!!!!!!!
+// значения по умолчанию для функций - дефолтные параметры
+// ставят в конец
+
+function sumNumbers3(limit2, limit1 = 1) {
+  let result = 0,
+    num;
+  for (num = limit1; num <= limit2; num++) {
+    result += num;
+  }
+  return result; // возврат значения
+}
+
+console.log(sumNumbers3(10, 1));
+console.log(sumNumbers3(10));
