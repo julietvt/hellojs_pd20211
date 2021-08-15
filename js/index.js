@@ -445,3 +445,103 @@ for (;;) {} бесконечный цикл  аналог while(true)
 !!! не забывать break
 
 */
+
+//=========================================
+
+//Task 6 таблица умножения на 2 через while или for решить
+// Task 7*  таблица умножения
+
+//8 вывести все высокостные годы (нацело делиться на 4)
+//из заданого диапазона
+//=========================================
+n = 10;
+let base = 2;
+
+// Task 6 for
+console.log('Task6');
+console.log('---------------------');
+for (i = 1; i <= 10; i++) {
+  result = base * i;
+  console.log(`${base} * ${i} = ${result}`);
+}
+
+// Task 6 while
+console.log('---------------------');
+i = 1;
+while (i <= n) {
+  result = base * i;
+  console.log(`${base} * ${i} = ${result}`);
+  i++;
+}
+
+// Task 7
+console.log('Task7');
+console.log('---------------------');
+for (base = 2; base <= 9; base++) {
+  for (i = 1; i <= 10; i++) {
+    result = base * i;
+    console.log(`${base} * ${i} = ${result}`);
+  }
+}
+/*
+base=2   for (i = 1; i <= 10; i++) 
+base=3   for (i = 1; i <= 10; i++) 
+....
+base=9
+*/
+
+/* BAD!!!!
+base = 2;
+for (i = 1; i <= 10; i++) {
+  result = base * i;
+  console.log(`${base} * ${i} = ${result}`);
+}
+base = 3;
+for (i = 1; i <= 10; i++) {
+  result = base * i;
+  console.log(`${base} * ${i} = ${result}`);
+}
+base = 4;
+for (i = 1; i <= 10; i++) {
+  result = base * i;
+  console.log(`${base} * ${i} = ${result}`);
+}
+base = 5;
+for (i = 1; i <= 10; i++) {
+  result = base * i;
+  console.log(`${base} * ${i} = ${result}`);
+}
+*/
+// Task 8
+console.log('Task8');
+console.log('---------------------');
+let startYear, endYear;
+startYear = 2021;
+endYear = 2050;
+/*
+let isLeapYear = false;
+for (i = startYear; i <= endYear; i++) {
+  if (i % 4 == 0) {
+    console.log(i);
+    isLeapYear = true;
+  }
+}
+console.log('isLeapYear=', isLeapYear);
+if (isLeapYear == false) {
+  console.log('Нет высокостных годов в заданном диапазоне');
+}
+*/
+//2 количество высокостных годов в диапазоне
+let countLeapYears = 0;
+console.log('Task9');
+console.log('---------------------');
+for (i = startYear; i <= endYear; i++) {
+  if (i % 4 == 0) {
+    console.log(i);
+    countLeapYears++;
+  }
+}
+console.log('Count of leap years is ', countLeapYears);
+if (countLeapYears == 0) {
+  console.log('Нет высокостных годов в заданном диапазоне');
+}
