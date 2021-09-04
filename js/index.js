@@ -1,53 +1,63 @@
-'use strict';
+// СТРОКИ String
 
-// деструктуризация
-const arr = ['val1', 'val2', 'val3', 'val4', 'val5', 'val6'];
+let str1 = 'hello world!!!';
+let str2 = '';
+console.log(str1);
 
-const a0 = arr[0];
-const a1 = arr[1];
+// доступ str[0], str[1]
+const [firstCh, ...restStr] = str1;
 
-const [el0, el1] = arr; // el0='val1', el1='val2'
+console.log(str1.charAt(0));
 
-//const [el0, el1, , el3] = arr;
+/*
+\\ обратный слеш
+\t табуляция
+\n новая строка
+\` кавычки \"
+\u юникод таблица
 
-const [firstEl, ...restArray] = arr;
+*/
 
-//! сам массив никто не трогает
+console.log('word "hello"');
+//console.log('word \'hello\'');
+console.log('word \nhello \nhi');
+console.log('word \thello \thi');
 
-const arr2 = ['val1', [2, 5, 1, 5, 9, 4, 5], 'val3', 'val4', 'val5'];
-// забрать 1
-let [, [, , z3], ...rest] = arr2;
-// забрать 9, 4, 5
-//let [, [, , , , ...subrest], ...rest] = arr2;
+// \ экранирование
+console.log('\u{263A}');
+console.log('\u{1F608}');
 
-// обьединение массивов
-const myArray1 = [1, 2, 3, 4, 5];
-const myArray2 = ['test1', 'test2', 'test3'];
-let result = [...myArray1, ...myArray2];
+// длина строки
+console.log(str1.length);
 
-// тоже но с уникальными значчениями
+//перевод строки с массив
+str1.toCharArray();
 
-result = new Set([...myArray1, ...myArray2]);
+// задачи на строки
+//1 строку преобразовать в массив слов
 
-// с обьектами
+let str = '   hello world  string  John  Fox';
 
-const obj1 = {
-  fname: 'Tom',
-  sname: 'Fox',
-};
-
-const obj2 = {
-  fname: 'John',
-  age: 20,
-};
-
-result = { ...obj1, ...obj2 };
-
-console.log(result);
-
-//
-{
-  age: 20;
-  fname: 'John';
-  sname: 'Fox';
+function task1(str) {
+  return str.trim().split(' ');
 }
+
+// сделать первую букву заглавной
+str[0].toUpperCase() + str.slice(1);
+// сделать каждое слово с заглавной буквы
+
+//сделать переменную в верблюжем регистре
+let words = str.split(' ');
+
+// вставить слово в предложении в указанную позицию
+
+function task10(str, word, position) {
+  let words = str.split('');
+  words.splice(position, 0, word);
+  let resultStr = words.join('');
+  return resultStr;
+}
+
+// найти сколько раз какойто символ встречается в строке
+
+function task11(str, searchSymbol) {}
