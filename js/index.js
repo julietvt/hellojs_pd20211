@@ -1,5 +1,5 @@
 'use strict';
-
+/*
 // переписать массив наоборот (перевернуть массив)
 
 let array1 = [1, 2, 3, 4, 5];
@@ -108,3 +108,73 @@ array1
   .concat(array2)
   .splice(index1, 0, array1.splice(index2, 1)[0])
   .filter((el) => el > 0);
+*/
+
+// Set множество
+let Set1 = new Set([1, 2, 3, 4, 5]);
+let Set2 = new Set([1, 1, 1, 1, 2, 2, 2, 3, 4, 5, 5]);
+let Set3 = new Set([1, 1, 1, 1, 2, 2, , , , , 2, 3, 4, , , 5, 5]);
+console.log(Set1);
+console.log(Set2);
+console.log(Set3);
+
+// добавлять
+Set1.add(6);
+Set1.add('hello');
+Set1.add('hello'); // игнор
+console.log('Set1:', Set1);
+
+let Set4 = new Set(['a', 'b', 'ccc', 'dd', 'e']);
+Set4.add('ff');
+console.log('Set4:', Set4);
+
+//objects
+let Set5 = new Set([{ name: 'Masha' }, { name: 'Petya' }]);
+Set5.add({ name: 'Vasya' });
+console.log('Set5:', Set5);
+
+let Set6 = new Set([{ name: 'test' }, { name: 'test' }]);
+console.log('Set6', Set6);
+
+const obj = { name: 'test' };
+let Set7 = new Set([obj, obj, obj, obj]);
+console.log('Set7:', Set7);
+
+// содержится ли элемент
+console.log(Set1.has(1));
+console.log(Set1.has(3));
+console.log(Set1.has(100));
+
+// очистить множество
+Set2.clear();
+
+// удаление значения
+console.log(Set1);
+Set1.add(100);
+console.log(Set1);
+Set1.delete(100);
+console.log(Set1);
+
+//Map
+const Map2 = new Map();
+
+Map2.set('Ann', 20);
+Map2.set('Tom', 22);
+
+Map2.get('Tom');
+Map2.get('Ann');
+
+const objkey = { name: 'test' };
+Map2.set(objkey, 'some_value');
+
+Map2.set('Ann', 10);
+Map2.set('Fox', 10);
+Map2.set('Ann', 50);
+Map2.set('Ann', 'hello');
+
+/*
+//delete
+Map2.delete('Ann');
+
+Map2.clear();
+*/
