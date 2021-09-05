@@ -1,225 +1,78 @@
-// область видимости
+// рекурсия
+
+// число в степени
+// base ^ exp  2^5=2*2*2*2*2
 
 /*
-let userValue = prompt('userValue');
-
-const test = 100;
-
-switch (userValue) {
-  case '1':
-    {
-      console.log(test);
-    }
-    break;
-  case '2':
-    {
-      console.log(test);
-    }
-    break;
-  case '3':
-    {
-      console.log(test);
-    }
-    break;
-  case '4':
-    {
-      console.log(test);
-    }
-    break;
-  default:
-    {
-      console.log(test);
-    }
-    break;
-}
-*/
-
-/*
-const test1 = 200;
-if (true) {
-  const test2 = 100;
-  console.log('First out test1=', test1);
-  console.log('First out test2=', test2);
-}
-console.log('Second out test1=', test1);
-console.log('Second out test2=', test2);
-*/
-
-/*
-const test = 200;
-if (true) {
-  const test = 100;
-  console.log('First out', test);
-}
-console.log('Second out', test);
-*/
-
-/*
-const test = 10;
-if (true) {
-  console.log(test);
-}
-*/
-
-/*
-if (true) {
-  var test = 1000000;
-  console.log(test);
-}
-console.log(test);
-*/
-
-/*
-console.log(test);
-
-if (true) {
-  console.log(test);
-  if (true) {
-    test = 1;
-    console.log(test);
-    if (true) {
-      console.log(test);
-      if (true) {
-        console.log(test); // undefined
-        var test;
-        test = 1000000;
-        console.log(test); //1000000
-      }
-      console.log(test);
-    }
-    console.log(test);
+function pow1 (base, exp){
+  for(let i=2; i<=exp; i++){
+    base *= base;
   }
-  console.log(test);
-}
-console.log(test);
-/*
-console.log(test2);
-let test2 = 5;
-console.log(test2);
-*/
-
-//console.log(this);
-
-'use strict';
-
-/*
-function f() {
-  test = 10;
-}
-
-f();
-console.log(this);
-*/
-
-/*
-for (var i = 0; i < 5; i++) {
-  console.log(i);
-}
-console.log('Result i=', i);
-*/
-/*
-const test = 10;
-
-function myFunction() {
-  console.log(test);
-  return 0;
-}
-
-const result = myFunction();
-console.log(result);
-*/
-
-/*
-function f() {
-  return function () {
-    //console.log('Hello');
-    alert('hello');
-  };
-}
-
-const result2 = f();
-result2();
-*/
-
-/*
-function f() {
-  const x = 10;
-  return function () {
-    return x;
-  };
-}
-
-//const result = f();
-//result();
-
-const resultFunction = f();
-const result = resultFunction();
-console.log(result);
-*/
-
-/*
-function f() {
-  let x = 10;
-  return function () {
-    return x++;
-  };
-}
-
-const resultFunction = f();
-console.log('resultFunction 1');
-console.log(resultFunction());
-console.log(resultFunction());
-console.log(resultFunction());
-console.log(resultFunction());
-console.log(resultFunction());
-
-const resultFunction2 = f();
-console.log('resultFunction 2');
-console.log(resultFunction2());
-console.log(resultFunction2());
-console.log(resultFunction2());
-console.log(resultFunction2());
-console.log(resultFunction2());
-*/
-
-/*
-function f() {
-  let x = 10;
-  function test() {}
-  return function () {
-    test();
-    x++;
-  };
+  return base;
 }
 */
 
 /*
-function f() {
-  var x = 0;
-}
-if (false) {
-  var x = 0;
-}
-f();
-
-// каждый раз при вызове функции создается новое лексическое окружение
-
-const test = 10;
-function f() {
-  if (true) {
-    var value = test;
+function pow1(base, exp) {
+  let result = 1;
+  for (let i = 1; i <= exp; i++) {
+    result = result * base;
   }
+  return result;
 }
 
-f();
-
+console.log(pow1(2, 5));
 */
 
-function f(userValue) {
-  ++userValue;
-  console.log(userValue);
-  return userValue;
+/*
+pow2(2, 5)
+pow2(2, 4)
+pow2(2, 3)
+pow2(2, 2)
+pow2(2, 1) if (exp == 1)   return base=2
+*/
+
+function pow2(base, exp) {
+  if (exp == 1) {
+    return base;
+  }
+  return base * pow2(base, exp - 1);
 }
 
-let userValue = 5;
-console.log(f(userValue));
+console.log(pow2(2, 5));
+
+// Ряд Фибоначчи A[i] = A[i-1] + A[i-2]
+// i:  1 2 3 4 5 6  7  8  9  10 11
+// Ai: 1 1 2 3 5 8 13 21 34  55 89
+
+//return n <= 1 ? n : fib(n - 1) + fib(n - 2)
+
+// сложность n^2
+
+function fibonachi(n) {
+  if (n < 1) {
+    return;
+  }
+  if (n <= 2) {
+    return 1;
+  }
+  return fibonachi(n - 1) + fibonachi(n - 2);
+}
+
+function fibonachi_2(n) {
+  if (n < 1) {
+    return;
+  }
+  if (n <= 2) {
+    return 1;
+  }
+  let fib1 = 1,
+    fib2 = 1;
+  let sum = fib1 + fib2;
+  for (let i = 3; i < n; i++) {
+    fib1 = fib2;
+    fib2 = sum;
+    sum = fib1 + fib2;
+  }
+  return sum;
+}
