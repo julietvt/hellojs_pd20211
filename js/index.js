@@ -1,106 +1,139 @@
-// заморозка обьекта
-const READ = 'READ';
-const user = Object.freeze({
-  name: 'John',
-  surname: 'Fox',
-  age: 20,
-  isMale: true,
-  role: READ,
-});
-
-// назначение прав доступа
-
-// admin, moderator, user
-const ROLE = Object.freeze({
-  ADMIN: 'ADMIN',
-  MODERATOR: 'MODERATOR',
-  USER: 'USER',
-});
-// create, read, update, delete
-const ACTION = {
-  CREATE: 'CREATE',
-  READ: 'READ',
-  UPDATE: 'UPDATE',
-  DELETE: 'DELETE',
-};
-
-// role rights
-
-let rights = new Map();
-
-rights.set(ACTION.CREATE, [ROLE.ADMIN, ROLE.MODERATOR]);
-rights.set(ACTION.READ, [ROLE.USER, ROLE.MODERATOR, ROLE.ADMIN]);
-rights.set(ACTION.UPDATE, [ROLE.MODERATOR]);
-rights.set(ACTION.DELETE, [ROLE.ADMIN]);
-
-function checkPermission(action, role) {
-  if (rights.has(action)) {
-    return rights.get(action).includes(role);
-  }
-  return false;
-}
-
-//rights.set(ROLE.USER, [ACTION.READ]);
-
+// object & function
 /*
-const user1 = {
-  login: 'user1',
-  role_access: ROLE.USER,
-  action_access: {ACTION.READ}  
-}
-*/
-
-// деструктуризация
-
-const arr = [1, 2, 3, 4, 5, 6, 7, 8, 10];
-// el1 = 1, el2 = 2, rest = [3,4,5,6,7,8,10]
-const [el1, el2, ...rest] = arr;
-
-const arr2 = [1, 2, [3, 4, 5, 6], 7, 8, 10];
-//5
-const [, , [, , el5]] = arr2;
-
-// object
-
-const user100 = {
+const user = {
   name: 'Tom',
   surname: 'Fox',
   age: 20,
-  book: {
-    cover: {
-      pages: 200,
-      format: '20x45',
-      copies: 5000,
-    },
-    bookName: 'java script',
-    bookYear: 2021,
+  lang: ['ua', 'eng', 'sp'],
+  car: {
+    name: 'name_car',
+    model: 'model_car',
+    year: 2021,
+    engine: { name: 'engine100', year: 2021 },
+  },
+  greeting1: function () {
+    console.log('Hello!');
+  },
+  greeting2: function () {
+    console.log(`Hello, ${this.name} !!`);
+  },
+  outThis: function () {
+    console.log(this);
   },
 };
-//name
-//console.log(user.name);
-//или
-//const {name} = user;
-// cover
-//const {book:{cover}} = user;
-// pages
-/*
-const {
-  book: {
-    cover: { pages },
-  },
-} = user100;
-console.log(pages);
 
-console.log(user100.book.cover.pages);
-*/
+user.greeting1();
+user.greeting2();
 
-//1
-function getUserFullName1(user) {
-  return `${user.name} ${user.surname}`;
+console.log(this); // window
+user.outThis(); // tom fox
+
+// функции конструкторы
+
+function stud(name, surname) {
+  this.name = name;
+  this.surname = surname;
 }
 
-//2
-function getUserFullName2(user) {
-  const { name, surname } = user; //!!!!
-  return `${name} ${surname}`;
+const Vasya = new stud('Vasya', 'Petrov');
+const Masha = new stud('Masha', 'Petrova');
+const Petya = new stud('Petya', 'Ivanov');
+
+console.log(Vasya);
+console.log(Masha);
+console.log(Petya);
+
+console.log(Vasya.name);
+console.log(Vasya.surname);
+
+function rect(size1, size2) {
+  this.a = size1;
+  this.b = size2;
+  this.square = function () {
+    return this.a * this.b;
+  };
 }
+
+const rect1 = new rect(2, 5);
+console.log(rect1);
+console.log(rect1.square());
+
+function buy(count, price) {
+  this.count = count;
+  this.price = price;
+  this.sum = 0;
+  this.sale = function (totalSum, procent) {
+    this.sum = this.count * this.price;
+    if (this.sum > totalSum) return this.sum * (1 - procent * 0.01);
+    return this.sum;
+  };
+}
+
+const buy1 = new buy(5, 200);
+console.log(buy1.sale(500, 3));
+
+//**************** */
+
+// ООП обьектно-ориентированное программирование
+// обьект  класс
+// класс = кот , обьекты (экземпляр класс) = Барсик, Маша, Сима....
+// класс = студент , обьекты  = Вася Иванов, Петя Сидоров , .....
+
+class cat {
+  // функция конструктор класс создает обьект
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+const Barsik = new cat('Barsik');
+const Masha2 = new cat('Masha');
+
+console.log(Barsik);
+console.log(Masha2);
+
+class stud {
+  constructor(name, surname, age) {
+    this.name = name;
+    this.surname = surname;
+    this.age = age;
+  }
+  /*
+  constructor() {
+    this.name = 'Vasya';
+    this.surname = 'Petrov';
+    this.age = 17;
+  }
+  */
+  getFullName() {
+    return `${this.name} ${this.surname}`;
+  }
+}
+
+const stud1 = new stud('name1', 'surname1', 20);
+const stud2 = new stud('name2', 'surname2', 20);
+const stud3 = new stud('name3', 'surname3', 20);
+const stud4 = new stud('name4', 'surname4', 20);
+
+console.log(stud4.getFullName());
+
+// класс треугольник
+
+class Triangle {
+  constructor(a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+  }
+  perimeter() {
+    return this.a + this.b + this.c;
+  }
+  square() {
+    let p = (this.a + this.b + this.c) / 2;
+    return Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
+  }
+}
+
+let obj1 = new Triangle(2, 4, 5);
+console.log(obj1.perimeter());
+console.log(obj1.square());
