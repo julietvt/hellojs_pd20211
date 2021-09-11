@@ -1,139 +1,165 @@
-// object & function
+'use strict';
 /*
-const user = {
-  name: 'Tom',
-  surname: 'Fox',
-  age: 20,
-  lang: ['ua', 'eng', 'sp'],
-  car: {
-    name: 'name_car',
-    model: 'model_car',
-    year: 2021,
-    engine: { name: 'engine100', year: 2021 },
+Level 1
+1. Подсчитать сумму нечётных элементов массива
+2. Вывести индексы нулевых элементов массива
+3. Даны два массива. Объедините их и преобразовав в строку.
+5. отфильтруйте массив, удалив все нули
+6. создайте и опишите объект worker с вложенным объектом edu который описывает образование. выведите сам объект в консоль, выведите уровень образования
+7. перепишите предыдущее задание6 на класс
+
+
+Level 2 *
+1. Отфильтруйте массив, удалив все нули. Преобразуйте результат в строку.
+2. Создайте карту map для списка пользователей. Каждый пользователь представляет собой отдельный объект со свойствами id, name, surname. В качестве ключа выбрать id  
+3. Напишите функцию перевода строки в верблюжий регистр
+4. Проверьте является ли слово палиндромом (например "abcddcba")
+5. Создайте и опишите объект worker. добавьте в него следующие функции(встроенные методы) : вывести ФИО, начислять доплату 5% если выслуга лет больше 5 лет и 10% если выслуга лет больше 8 лет
+6. Перепишите предыдущее задание5 на класс
+*/
+
+/*
+let arr = [2, 3, -1, 0, 0, 4, 7, -2, -3, 0, 1, 2];
+//0  1   2  3  4  5  6   7   8  9  10  11
+let i, j;
+let result;
+// 1.1 Подсчитать сумму нечётных элементов массива
+//1
+let sum = 0;
+for (i = 0; i < arr.length; i++) {
+  if (arr[i] % 2 != 0) {
+    sum += arr[i];
+  }
+}
+console.log(sum);
+//2
+result = arr.filter((elem) => elem % 2 != 0);
+const reducer = (previousValue, currentValue) => previousValue + currentValue;
+sum = arr.reduce(reducer);
+// arr.filter((elem) => elem % 2 != 0).reduce((prVal, cVal) => prVal + cVal);
+
+//Вывести индексы нулевых элементов массива
+function task_1_2(arr) {
+  let indexes = [];
+  for (let i = 0, j = 0; i < arr.length; i++) {
+    if (arr[i] == 0) {
+      indexes[j] = i;
+      j++;
+    }
+  }
+  return indexes;
+}
+//2
+let indexes = [];
+let idx = arr.indexOf(0);
+while (idx != -1) {
+  indexes.push(idx);
+  idx = arr.indexOf(0, idx + 1);
+}
+console.log(indexes);
+
+// 1.3 Даны два массива. Объедините их и преобразовав в строку.
+function taska_1_3(arr1, arr2) {
+  return [...arr1, ...arr2].join('');
+  //return arr1.concat(arr2).join('');
+}
+
+// 1.5создайте и опишите объект worker с вложенным объектом edu который описывает образование. выведите сам объект в консоль, выведите уровень образования
+const worker = {
+  name: 'John',
+  age: 30,
+  nationality: 'American',
+  experience: '10 years',
+  edu: {
+    univesity: {
+      name: 'Massachusetts Institute of Technology',
+      abbr: 'MIT',
+    },
+    degree: 'master',
   },
-  greeting1: function () {
-    console.log('Hello!');
+  religion: 'ortodox',
+  MS: 'married',
+};
+
+console.log(worker);
+console.log(worker.edu);
+//const {edu: { univesity },} = worker;
+//const {edu_worker} = worker;
+//console.log({ edu_worker });
+
+class Worker {
+  constructor(name, age, edu) {
+    this.name = name;
+    this.age = age;
+    this.edu = edu;
+  }
+}
+
+let user1 = new Worker('Tom', 20, {
+  univesity: {
+    name: 'Massachusetts Institute of Technology',
+    abbr: 'MIT',
   },
-  greeting2: function () {
-    console.log(`Hello, ${this.name} !!`);
+});
+
+// task 2.3. Напишите функцию перевода строки в верблюжий регистр
+let str1 = 'hello java script'; // 'helloJavaScript'
+let words = str1.toLowerCase().split(' ');
+for (i = 1; i < words.length; i++) {
+  //words[i] = String.fromCharCode(words[i].charCodeAt(0)-'0x20');
+  words[i][0].toUpperCase();
+}
+result = words.join('');
+
+//2.4 task polindrom
+
+function palindromCheck(str) {
+  const part1 = str.slice(0, str.length / 2);
+  const part2 = str
+    .slice(str.length / 2)
+    .split('')
+    .reverse()
+    .join('');
+
+  if (part1.localeCompare(part2) == 0) {
+    console.log('Строка является палиндромом!');
+  } else {
+    console.log('Строка не является палиндромом!');
+  }
+}
+
+// 'hello js'
+// 'hel loj s'
+// hel ==> leh
+// if('leh' == 'loj') false
+
+// 'abcddcba'
+// abcd  ==> dcba
+
+//2.5 task
+const woker1 = {
+  firstName: 'Ivan',
+  secondName: 'Ivanovych',
+  surname: 'Ivanov',
+  printFullName: function () {
+    console.log(this.firstName + ' ' + this.secondName + ' ' + this.surname);
   },
-  outThis: function () {
-    console.log(this);
+  workingAge: 11,
+  yearHire: 2020,
+  salary: 10000,
+  salaryCount: function () {
+    if (this.workingAge > 5 && this.workingAge < 8) {
+      console.log('Ваша зарплата: ', this.salary * 1.05);
+    } else if (this.workingAge >= 8) {
+      return console.log('Ваша зарплата: ', this.salary * 1.08);
+    } else {
+      console.log('Ваша зарплата: ', this.salary);
+    }
+  },
+  updateExperience() {
+    let curY = new Date().getFullYear();
+    this.workingAge = curY - this.yearHire;
   },
 };
 
-user.greeting1();
-user.greeting2();
-
-console.log(this); // window
-user.outThis(); // tom fox
-
-// функции конструкторы
-
-function stud(name, surname) {
-  this.name = name;
-  this.surname = surname;
-}
-
-const Vasya = new stud('Vasya', 'Petrov');
-const Masha = new stud('Masha', 'Petrova');
-const Petya = new stud('Petya', 'Ivanov');
-
-console.log(Vasya);
-console.log(Masha);
-console.log(Petya);
-
-console.log(Vasya.name);
-console.log(Vasya.surname);
-
-function rect(size1, size2) {
-  this.a = size1;
-  this.b = size2;
-  this.square = function () {
-    return this.a * this.b;
-  };
-}
-
-const rect1 = new rect(2, 5);
-console.log(rect1);
-console.log(rect1.square());
-
-function buy(count, price) {
-  this.count = count;
-  this.price = price;
-  this.sum = 0;
-  this.sale = function (totalSum, procent) {
-    this.sum = this.count * this.price;
-    if (this.sum > totalSum) return this.sum * (1 - procent * 0.01);
-    return this.sum;
-  };
-}
-
-const buy1 = new buy(5, 200);
-console.log(buy1.sale(500, 3));
-
-//**************** */
-
-// ООП обьектно-ориентированное программирование
-// обьект  класс
-// класс = кот , обьекты (экземпляр класс) = Барсик, Маша, Сима....
-// класс = студент , обьекты  = Вася Иванов, Петя Сидоров , .....
-
-class cat {
-  // функция конструктор класс создает обьект
-  constructor(name) {
-    this.name = name;
-  }
-}
-
-const Barsik = new cat('Barsik');
-const Masha2 = new cat('Masha');
-
-console.log(Barsik);
-console.log(Masha2);
-
-class stud {
-  constructor(name, surname, age) {
-    this.name = name;
-    this.surname = surname;
-    this.age = age;
-  }
-  /*
-  constructor() {
-    this.name = 'Vasya';
-    this.surname = 'Petrov';
-    this.age = 17;
-  }
-  */
-  getFullName() {
-    return `${this.name} ${this.surname}`;
-  }
-}
-
-const stud1 = new stud('name1', 'surname1', 20);
-const stud2 = new stud('name2', 'surname2', 20);
-const stud3 = new stud('name3', 'surname3', 20);
-const stud4 = new stud('name4', 'surname4', 20);
-
-console.log(stud4.getFullName());
-
-// класс треугольник
-
-class Triangle {
-  constructor(a, b, c) {
-    this.a = a;
-    this.b = b;
-    this.c = c;
-  }
-  perimeter() {
-    return this.a + this.b + this.c;
-  }
-  square() {
-    let p = (this.a + this.b + this.c) / 2;
-    return Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
-  }
-}
-
-let obj1 = new Triangle(2, 4, 5);
-console.log(obj1.perimeter());
-console.log(obj1.square());
+*/
