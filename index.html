@@ -5,15 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello JS</title>
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Hello JavaScript</h1>
-    <p>Learning...</p>
-    <!--
-    <script>
-        alert("Hello, JavaScript!!!");
-    </script>
--->
+    <form action="#">
+        <!--
+            input
+            type="text"
+            type="radio"
+            type="checkbox"
+            type="submit" button
+            type="button"
+
+            type: text, password, email, tel, ...
+
+            name и id могут быть разные!
+
+            query string - query params 
+            разделитель используется путь /...../
+
+            {
+                "userName": "user100",
+                "userPassw": "qwerty",
+                "work": "stud",
+            }
+        -->
+        <label for="userName">Your login</label>
+        <input id="userName" type="text" name="userName" placeholder="user name" required>
+        <br/>
+        <label for="passw">password</label>
+        <input id="passw" type="password" name="userPassw" placeholder="password" required>
+        <br/>
+        <input type="submit">
+        <br />
+        <label>
+            <input type="checkbox" name="work" value="stud"><span>checkbox1</span>
+            <input type="checkbox" name="work" value="teacher"><span>checkbox2</span>
+            <input type="checkbox" name="work"><span>checkbox3</span>
+            <input type="checkbox" name="work"><span>checkbox4</span>
+        </label>
+        <br/>
+        <label>
+            <input type="radio" name="work" value="stud" checked><span>box1</span>
+            <input type="radio" name="work" value="teacher"><span>box2</span>
+            <input type="radio" name="work" ><span>box3</span>
+            <input type="radio" name="work" ><span>box4</span>
+        </label>
+        <br/>
+        <select name="country">
+            <option value="ua" >Ukraine</option>
+            <option value="usa">USA</option>
+            <option value="sp">Spain</option>
+        </select>
+    </form>
+
 <script src="./js/index.js"></script>
 </body>
 </html>
