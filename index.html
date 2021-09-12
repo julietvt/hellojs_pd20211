@@ -8,53 +8,7 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-    <form action="#">
-        <!--
-            input
-            type="text"
-            type="radio"
-            type="checkbox"
-            type="submit" button
-            type="button"
-
-            type: text, password, email, tel, ...
-
-            name и id могут быть разные!
-
-            query string - query params 
-            разделитель используется путь /...../
-
-            {
-                "userName": "user100",
-                "userPassw": "qwerty",
-                "work": "stud",
-            }
-        -->
-            <div class="photo">
-                <img src="https://static.mk.ru/upload/entities/2021/02/17/20/articles/detailPicture/c2/78/dc/b6/cf20eea9a28408698ffc0a2749db4411.jpg" alt="User's photo">
-            </div>
-            <h2>Member login</h2>
-            <input 
-            id="userName" 
-            type='text' 
-            name="userName" 
-            placeholder="Username" 
-            pattern="[A-Za-z]+"
-            required>
-            <input id="userPassw" type='password' name="userPassw" pattern = "^(?=.*?[a-z])(?=.*?[0-9]).{6,}$" placeholder="password" required>
-            <input class="favorite styled" type="button" value="Sign in">
-            <div class="remember">
-                <label class="checkboxRemember">
-            <div class="remember">                 <input type='checkbox'><span>Remember me</span>
-            <div class="remember">        </label>
-                <a class="forgot" href="#">Forgot password?</a>
-            </div>
-        </form>
-
-        <div class="textend">
-            <div class="Sign">Don't have an account?</div>
-            <a href="#"> Sign up here!</a>
-        </div>
+    
 
 <script src="./js/index.js"></script>
 </body>
