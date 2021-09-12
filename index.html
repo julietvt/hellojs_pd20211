@@ -39,8 +39,9 @@
             type='text' 
             name="userName" 
             placeholder="Username" 
-            pattern="\w"
+            pattern="[A-Za-z]+"
             required>
+            <input id="userPassw" type='password' name="userPassw" pattern = "^(?=.*?[a-z])(?=.*?[0-9]).{6,}$" placeholder="password" required>
             <input class="favorite styled" type="button" value="Sign in">
             <div class="remember">
                 <label class="checkboxRemember">

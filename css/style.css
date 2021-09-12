@@ -9,7 +9,7 @@ input:focus {
 form {
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  border: 2px solid orange;
   background-color: rgb(231, 228, 228);
   align-items: center;
   max-width: 600px;
@@ -53,4 +53,12 @@ h2 {
   display: flex;
   justify-content: flex-end;
   /*margin-right: 280px;*/
+}
+
+input[type='password']:valid {
+  border: 2px solid green;
+}
+
+input[type='password']:invalid {
+  border: 2px solid red;
 }
