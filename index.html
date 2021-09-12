@@ -30,35 +30,30 @@
                 "work": "stud",
             }
         -->
-        <label for="userName">Your login</label>
-        <input id="userName" type="text" name="userName" placeholder="user name" required>
-        <br/>
-        <label for="passw">password</label>
-        <input id="passw" type="password" name="userPassw" placeholder="password" required>
-        <br/>
-        <input type="submit">
-        <br />
-        <label>
-            <input type="checkbox" name="work" value="stud"><span>checkbox1</span>
-            <input type="checkbox" name="work" value="teacher"><span>checkbox2</span>
-            <input type="checkbox" name="work"><span>checkbox3</span>
-            <input type="checkbox" name="work"><span>checkbox4</span>
-        </label>
-        <br/>
-        <label>
-            <input type="radio" name="work" value="stud" checked><span>box1</span>
-            <input type="radio" name="work" value="teacher"><span>box2</span>
-            <input type="radio" name="work" ><span>box3</span>
-            <input type="radio" name="work" ><span>box4</span>
-        </label>
-        <br/>
-        <select name="country">
-            <option value="ua" >Ukraine</option>
-            <option value="usa">USA</option>
-            <option value="sp">Spain</option>
-        </select>
-    </form>
+            <div class="photo">
+                <img src="https://static.mk.ru/upload/entities/2021/02/17/20/articles/detailPicture/c2/78/dc/b6/cf20eea9a28408698ffc0a2749db4411.jpg" alt="User's photo">
+            </div>
+            <h2>Member login</h2>
+            <input 
+            id="userName" 
+            type='text' 
+            name="userName" 
+            placeholder="Username" 
+            pattern="\w"
+            required>
+            <input class="favorite styled" type="button" value="Sign in">
+            <div class="remember">
+                <label class="checkboxRemember">
+            <div class="remember">                 <input type='checkbox'><span>Remember me</span>
+            <div class="remember">        </label>
+                <a class="forgot" href="#">Forgot password?</a>
+            </div>
+        </form>
+
+        <div class="textend">
+            <div class="Sign">Don't have an account?</div>
+            <a href="#"> Sign up here!</a>
+        </div>
 
 <script src="./js/index.js"></script>
 </body>
-</html>
