@@ -18,3 +18,15 @@ myArray.prototype = {
     }
   },
 };
+// для обьекта __proto__
+
+let obj1 = {
+  name: 'Tom',
+  surname: 'Fox',
+};
+
+let obj2 = {
+  login: 'loginQwerty123',
+};
+
+obj1.__proto__ = obj2;
