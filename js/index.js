@@ -43,4 +43,50 @@ class List {
     }
     this.size++;
   }
+  addEnd(value) {
+    const new_tail = new Item(value, null, this.tail);
+    if (this.tail) {
+      this.tail.next = new_tail;
+    }
+    this.tail = new_tail;
+    if (!this.head) {
+      this.head = new_tail;
+    }
+    this.size++;
+  }
+  addAfterNode(node, value) {
+    if (this.tail == node) {
+      this.addEnd(value);
+      return;
+    }
+    const new_item = new Item(value, node.next, node);
+    node.next = new_item;
+    new_item.next.prev = node;
+    this.size++;
+  }
+  [Symbol.iterator]() {
+    let current_item = this.head;
+    return {
+      next() {
+        if (current_item) {
+          const value = current_item.value;
+          current_item = current_item.next;
+          return {
+            value: value,
+            done: false,
+          };
+        } else {
+          return {
+            done: true,
+          };
+        }
+      },
+    };
+  }
 }
+
+const list1 = new List();
+list1.addEnd(5);
+list1.addEnd('hello');
+list1.addEnd(100);
+list1.addEnd({ name: 'Tom', surname: 'Fox' });
