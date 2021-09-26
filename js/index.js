@@ -1,31 +1,25 @@
-const user1 = {
-  name: 'test',
-  surname: 'testovich',
-  email: 'test@test.com',
-  field1: null,
-  field2: {},
-  field3: { name: 'hello' },
-  field4: true,
-  field5: 100,
-  field6: function () {
-    return 1;
-  },
-  field7: [],
-  field8: [1, 2, 3],
-  [Symbol('id')]: 123,
-  field9: undefined,
-};
+// location
+//console.log(location);
 
-const jsonUser = JSON.stringify(user1);
+const locationEl = document.getElementById('location');
 
-const parseUser = JSON.parse(jsonUser);
+for (let i in locationEl) {
+  if (typeof locationEl[i] == 'string') {
+    console.log(`${i} = ${locationEl[i]}`);
+    const listItem = document.createElement('li');
+    listItem.innerText = `${i} = "${locationEl[i]}"`;
+    locationEl.append(listItem);
+  }
+}
 
-console.log(jsonUser);
-console.log(parseUser);
+// методы
+// reload() перезагрузка страницы
+// replace() старая не добавляется
+// assign() новая добавляется
 
-localStorage.setItem('user1', jsonUser);
+const reloadBtn = document.getElementById('reload');
+reloadBtn.addEventListener('click', function () {
+  location.reload();
+});
 
-// когда мы будем использовать инфу
-
-const getUser1 = JSON.parse(localStorage.getItem('user1'));
-console.log('from localStorage:', getUser1);
+// origin `${location.origin}`
