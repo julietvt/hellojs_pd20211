@@ -1,25 +1,39 @@
-// location
-//console.log(location);
-
-const locationEl = document.getElementById('location');
-
-for (let i in locationEl) {
-  if (typeof locationEl[i] == 'string') {
-    console.log(`${i} = ${locationEl[i]}`);
-    const listItem = document.createElement('li');
-    listItem.innerText = `${i} = "${locationEl[i]}"`;
-    locationEl.append(listItem);
+/*
+Задача.
+Форма с логином и паролем
+Реализовать класс User и сгенерировать обьект из данных формы.
+полученный обьект сохранить в сесионное хранилище как
+авторизированного пользователя
+*/
+const AUTH_USER = 'AUTH_USER';
+class User {
+  constructor(login, password) {
+    this._login = login;
+    this._password = password;
+  }
+  set login(value) {
+    this._login = value;
+  }
+  set password(value) {
+    this._password = value;
+  }
+  get login() {
+    return this._login;
+  }
+  get password() {
+    return this._password;
+  }
+  outObject() {
+    console.log(this);
   }
 }
 
-// методы
-// reload() перезагрузка страницы
-// replace() старая не добавляется
-// assign() новая добавляется
+const loginEl = document.querySelector("input[name='login']");
+const passwordEl = document.querySelector("input[name='password']");
+const loginBtn = document.querySelector('#loginBtn');
 
-const reloadBtn = document.getElementById('reload');
-reloadBtn.addEventListener('click', function () {
-  location.reload();
-});
-
-// origin `${location.origin}`
+loginBtn.onclick = function (e) {
+  const thisUser = new User(loginEl.value, passwordEl.value);
+  thisUser.outObject();
+  sessionStorage.setItem(AUTH_USER, JSON.stringify(thisUser));
+};
