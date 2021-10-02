@@ -8,13 +8,17 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
-    <div>
-    <input type="text" id="task" name="task" placeholder="task"> 
-    <input type="button" id="btn" value="Add task">Add task</input>
+<div class="hi">TODOLIST</div>
+<div class="cont">
+    <div class="input">
+        <input type="task" class="input-form" name="task" maxlength="20" required>
     </div>
-    <ul id="tasks">
-
-    </ul>
+    <div class="button">
+        <div class="addButton">Add</div>
+        <div class="delButton">Delete</div>
+    </div>
+</div>
+<ul class="tasks"></ul>
 
 <script src="./js/index.js"></script>
 </body>
