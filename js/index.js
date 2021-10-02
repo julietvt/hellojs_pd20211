@@ -1,3 +1,4 @@
+/*
 const input = document.querySelector('.input-form');
 const add = document.querySelector('.addButton');
 const del = document.querySelector('.delButton');
@@ -50,3 +51,4 @@ function delTask() {
     }
   }
 }
+*/
