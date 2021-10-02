@@ -44,6 +44,11 @@ body {
   color: white;
 }
 
+.slider-color-boxes h2 {
+  font-size: 45px;
+  margin: 10px;
+}
+
 .slider-images > div {
   height: 100%;
   width: 100%;
@@ -58,6 +63,11 @@ button {
   font-size: 16px;
   padding: 10px;
   border: none;
+  color: #aaa;
+}
+
+button:hover {
+  color: black;
 }
 
 .container .controlsBtn button {
@@ -65,4 +75,14 @@ button {
   z-index: 2;
   left: 30%;
   top: 50%;
+}
+
+.container .controlsBtn .btn-down {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.container .controlsBtn .btn-up {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
 }
