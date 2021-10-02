@@ -14,23 +14,30 @@ function addTask() {
     let newTask = document.createElement('li');
     newTask.classList.add('taskElem');
     newTask.innerHTML = input.value;
-    newTask.append(addCheck());
+    newTask.append(addContentItem());
     tasks.append(newTask);
     document.querySelector('.input-form').value = '';
   }
 }
 
-function addCheck() {
-  const timeElem = document.createElement('div');
-  timeElem.classList.add('time');
+function addContentItem() {
+  const tElem = document.createElement('div');
+  tElem.classList.add('time');
   const time = new Date();
-  timeElem.textContent =
+  tElem.textContent =
     time.getFullYear() + '.' + time.getMonth() + '.' + time.getDate();
   let checkBox = document.createElement('input');
   checkBox.type = 'checkbox';
   checkBox.className = 'checkBox';
-  timeElem.appendChild(checkBox);
-  return timeElem;
+  tElem.appendChild(checkBox);
+  const removeBtn = document.createElement('button');
+  removeBtn.classList.add('removeBtnStyle');
+  removeBtn.addEventListener('click', function (e) {
+    console.log(this.parentNode.parentNode);
+    this.parentNode.parentNode.remove();
+  });
+  tElem.appendChild(removeBtn);
+  return tElem;
 }
 
 function delTask() {
