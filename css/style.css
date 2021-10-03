@@ -17,7 +17,6 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  /*display: flex;*/
 }
 
 .slider-color-boxes {
@@ -26,7 +25,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  /*flex: 1*/
 }
 
 .slider-images {
@@ -35,7 +33,6 @@ body {
   top: 0;
   left: calc(var(--width-col) * 1%);
   position: absolute;
-  /*flex: 3*/
 }
 
 .slider-color-boxes > div {
