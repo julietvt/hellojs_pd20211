@@ -1,3 +1,7 @@
+:root {
+  --width-col: 30;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -18,7 +22,7 @@ body {
 
 .slider-color-boxes {
   height: 100%;
-  width: 30%;
+  width: calc(var(--width-col) * 1%);
   position: absolute;
   top: 0;
   left: 0;
@@ -27,9 +31,9 @@ body {
 
 .slider-images {
   height: 100%;
-  width: 70%;
+  width: calc(100% - var(--width-col) * 1%);
   top: 0;
-  left: 30%;
+  left: calc(var(--width-col) * 1%);
   position: absolute;
   /*flex: 3*/
 }
@@ -79,7 +83,7 @@ button:hover {
 .container .controlsBtn button {
   position: absolute;
   z-index: 2;
-  left: 30%;
+  left: calc(var(--width-col) * 1%);
   top: 50%;
 }
 
