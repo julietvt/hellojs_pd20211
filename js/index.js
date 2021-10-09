@@ -1,39 +1,35 @@
-// 1 slider
-const colorSlider = document.querySelector('.slider-color-boxes');
-const slidesCount = colorSlider.querySelectorAll('div').length;
-// 2 slider
-const imgSlider = document.querySelector('.slider-images');
-// control buttons
-const upButton = document.querySelector('.btn-up');
-const downButton = document.querySelector('.btn-down');
-// container
-const container = document.querySelector('.container');
-// current slide index
-let index = 0;
+/* Intersection Observer
+ленивая загрузка изображений видео др контента
+бесконечный скролл
+запуск рекламы , процесса, скрипта 
 
-imgSlider.style.top = `-${(slidesCount - 1) * 100}vh`;
-colorSlider.style.top = `-${(slidesCount - 1) * 100}vh`;
+let options = {
+  root : // корневой элемент - родитель или viewport (null или не указываем эту опцию )
+  threshold: // порог пересечения 0...1
+  rootMargin: // поля вокруг корневого элемента 
+}
 
-upButton.addEventListener('click', () => {
-  moveToUpDown('up');
-});
+let callbackFun = function(){}
 
-downButton.addEventListener('click', () => {
-  moveToUpDown('down');
-});
+let observer = new IntersectionObserver(callbackFun, options);
 
-function moveToUpDown(dirMove) {
-  if (dirMove == 'up') {
-    index = (index + 1) % slidesCount;
-  } else if (dirMove == 'down') {
-    index = (index - 1 + slidesCount) % slidesCount;
-  } else {
-    console.error('Unknown parameter');
-  }
-  console.log('index = ', index);
-  const offsetHeight = container.clientHeight;
-  colorSlider.style.transform = `translateY(-${index * offsetHeight}px)`;
-  imgSlider.style.transform = `translateY(${index * offsetHeight}px)`;
-  console.log(colorSlider.style.transform);
-  console.log(imgSlider.style.transform);
+let target = document.getElementById('some_target');
+
+observer.observe(target);
+
+*/
+
+const options = { root: null, threshold: 1, rootMargin: '20px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    //console.log('entry:', entry);
+    entry.target.classList.add('active');
+    entry.target.innerHTML = '<p>Block was loaded</p>';
+    observer.unobserve(entry.target);
+  });
+}, options);
+
+const targetCollectionElements = document.querySelectorAll('.back');
+for (let target of targetCollectionElements) {
+  observer.observe(target);
 }
