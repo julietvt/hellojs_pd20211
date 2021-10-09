@@ -1,29 +1,24 @@
-body {
-  text-align: center;
-  font-family: 'Averia serif libre';
-  background-color: crimson;
-  color: aliceblue;
-  height: 2000px;
+#list {
+  position: relative;
+  overflow-y: scroll;
+  border: 2px solid blue;
+  width: 100%;
+  max-width: 800px;
+  max-height: 100vh;
 }
-video {
-  width: 600px;
-  margin-top: 50px;
+
+#listItemLoad {
+  position: absolute;
+  top: 0;
+  height: 400px;
+  border: 1ps solid black;
+  background-color: #ccc;
 }
-h1 {
-  margin-top: 50px;
-  font-size: 14pt;
-  text-transform: uppercase;
-}
-a {
-  color: skyblue;
-}
-#warning {
-  padding: 10px;
-  color: beige;
-  background: red;
-}
-@media (max-width: 620px) {
-  video {
-    width: 90vw;
-  }
+
+.item {
+  width: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  margin: 10px;
 }

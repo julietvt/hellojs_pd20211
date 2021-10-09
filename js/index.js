@@ -1,19 +1,8 @@
-if (!!window.IntersectionObserver) {
-  let video = document.querySelector('video');
-  let isPaused = false; /* flag for auto-pausing of the video */
-  let observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio != 1 && !video.paused) {
-          video.pause();
-          isPaused = true;
-        } else if (isPaused) {
-          video.play();
-          isPaused = false;
-        }
-      });
-    },
-    { threshold: 1 }
-  );
-  observer.observe(video);
-} else document.querySelector('#warning').style.display = 'block';
+function addItems() {
+  for (let i = 0; i < 20; i++) {
+    FileList.prepend(createListItemLoad());
+  }
+  FileList.scrollTo(0, 800);
+}
+
+function createListItemLoad() {}
