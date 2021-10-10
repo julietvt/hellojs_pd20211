@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+}
+
+.item:hover .buy {
+  opacity: 1;
+}
+
+.item img {
+  display: block;
+  width: 100%;
+}
+
+.buy {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: 0.5s ease-in;
+}
+
+.info {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.info h2 {
+  margin: 10px;
+  font-weight: normal;
+}
+
+.price {
+  color: reg;
+  display: block;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.5s ease-in;
+}
+
+.container:hover .btn {
+  background: red;
+}
